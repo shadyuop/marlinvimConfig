@@ -3,28 +3,25 @@ return {
   lsp = require "user.lsp",
   ["which-key"] = require "user.which-key",
 
-  cmp = {
-    source_priority = {
-      nvim_lsp = 1000,
-      luasnip = 750,
-      emoji = 700,
-      cmdline = 700,
-      lua = 700,
-      pandoc_references = 700,
-      latex_symbols = 700,
-      calc = 650,
-      path = 500,
-      buffer = 250,
-    },
-  },
+  polish = function()
+    local function alpha_on_bye(cmd)
+      local bufs = vim.fn.getbufinfo { buflisted = true }
+      vim.cmd(cmd)
+      if require("core.utils").is_available "alpha-nvim" and not bufs[2] then
+        require("alpha").start(true)
+      end
+    end
+    vim.keymap.del("n", "<leader>c")
+    if require("core.utils").is_available "bufdelete.nvim" then
+      vim.keymap.set("n", "<leader>c", function()
+        alpha_on_bye "Bdelete!"
+      end, { desc = "Close buffer" })
+    else
+      vim.keymap.set("n", "<leader>c", function()
+        alpha_on_bye "bdelete!"
+      end, { desc = "Close buffer" })
+    end
+    require "user.mappings"
 
-  -- polish = function()
-  --   vim.filetype.add {
-  --     pattern = {
-  --       ["/tmp/neomutt.*"] = "markdown",
-  --     },
-  --   }
-  --   require "user.autocmds"
-  --   require "user.mappings"
-  -- end,
+  end,
 }

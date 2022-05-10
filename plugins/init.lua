@@ -4,6 +4,16 @@ return {
   -- ["goolord/alpha-nvim"] = { disable = true },
 
   -- ** Installing packages ***
+ -- Start screen
+  {
+    "goolord/alpha-nvim",
+    cmd = "Alpha",
+    module = "alpha",
+    config = function()
+      require("user.plugins.alpha").config()
+    end,
+  },
+
 -- Hop
 	{
 		"phaazon/hop.nvim",
@@ -78,4 +88,6 @@ return {
     end,
     requires = "nvim-treesitter/nvim-treesitter",
   },
+  {'majutsushi/tagbar'}
+
 }
