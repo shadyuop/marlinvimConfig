@@ -46,9 +46,11 @@ function M.config()
             utils.alpha_button("LDR f f", "  Find File  "),
             utils.alpha_button("LDR f o", "  Recents  "),
             utils.alpha_button("LDR f w", "  Find Word  "),
-            utils.alpha_button("LDR f n", "  New File  "),
+            utils.alpha_button("LDR   n", "  New File  "),
+            utils.alpha_button("LDR f e", " Folder Explore"),
             utils.alpha_button("LDR f m", "  Bookmarks  "),
             utils.alpha_button("LDR S l", "  Last Session  "),
+            utils.alpha_button("LDR f t", "  Change Theme"),
           },
           opts = {
             spacing = 1,

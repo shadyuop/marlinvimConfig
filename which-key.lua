@@ -15,68 +15,70 @@ end
 
 return {
   register_mappings = {
-    -- n = {
-    --   ["<leader>"] = {
+    n = {
+      ["<leader>"] = {
     --     ["c"] = { "<cmd>Bdelete!<CR>", "Bye Buffer" },
     --     ["C"] = { "<cmd>bdelete!<cr>", "Close Buffer" },
-    --     ["N"] = { "<cmd>tabnew<cr>", "New Buffer" },
+        ["N"] = { "<cmd>tabnew<cr>", "New Buffer" },
+        ["n"] = { "<cmd>enew<cr>", "New File" },
     --     ["H"] = { "<cmd>set hlsearch!<cr>", "Toggle Highlight" },
     --     ["<cr>"] = { '<esc>/<++><cr>"_c4l', "Next Template" },
     --     ["z"] = { "<cmd>ZenMode<cr>", "Zen Mode" },
     --     ["r"] = { "<cmd>SendHere<cr>", "Set REPL" },
-    --     ["."] = { "<cmd>cd %:p:h<cr>", "Set CWD" },
+        ["."] = { "<cmd>cd %:p:h<cr>", "Set CWD" },
     --
-    --     a = {
-    --       name = "Annotate",
-    --       ["<cr>"] = {
-    --         function()
-    --           require("neogen").generate()
-    --         end,
-    --         "Current",
-    --       },
-    --       c = {
-    --         function()
-    --           require("neogen").generate { type = "class" }
-    --         end,
-    --         "Class",
-    --       },
-    --       f = {
-    --         function()
-    --           require("neogen").generate { type = "func" }
-    --         end,
-    --         "Function",
-    --       },
-    --       t = {
-    --         function()
-    --           require("neogen").generate { type = "type" }
-    --         end,
-    --         "Type",
-    --       },
-    --       F = {
-    --         function()
-    --           require("neogen").generate { type = "file" }
-    --         end,
-    --         "File",
-    --       },
-    --     },
-    --
-    --     f = {
-    --       name = "Telescope",
-    --       ["?"] = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-    --       ["'"] = { "<cmd>Telescope marks<cr>", "Marks" },
-    --       B = { "<cmd>Telescope bibtex<cr>", "BibTeX" },
-    --       c = { "<cmd>Telescope commands<cr>", "Commands" },
-    --       e = { "<cmd>Telescope file_browser<cr>", "Explorer" },
-    --       F = { "<cmd>Telescope find_files hidden=true no_ignore=true<cr>", "All Files" },
-    --       h = { "<cmd>Telescope oldfiles<cr>", "History" },
-    --       k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-    --       m = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-    --       M = { "<cmd>Telescope media_files<cr>", "Media" },
-    --       n = { "<cmd>Telescope notify<cr>", "Notifications" },
-    --       p = { "<cmd>Telescope project<cr>", "Projects" },
-    --       r = { "<cmd>Telescope registers<cr>", "Registers" },
-    --       t = { "<cmd>Telescope colorscheme<cr>", "Themes" },
-    --     },
+        a = {
+          name = "Annotate",
+          ["<cr>"] = {
+            function()
+              require("neogen").generate()
+            end,
+            "Current",
+          },
+          c = {
+            function()
+              require("neogen").generate { type = "class" }
+            end,
+            "Class",
+          },
+          f = {
+            function()
+              require("neogen").generate { type = "func" }
+            end,
+            "Function",
+          },
+          t = {
+            function()
+              require("neogen").generate { type = "type" }
+            end,
+            "Type",
+          },
+          F = {
+            function()
+              require("neogen").generate { type = "file" }
+            end,
+            "File",
+          },
+        },
+
+        f = {
+          name = "Telescope",
+          ["?"] = { "<cmd>Telescope help_tags<cr>", "Find Help" },
+          ["'"] = { "<cmd>Telescope marks<cr>", "Marks" },
+          B = { "<cmd>Telescope bibtex<cr>", "BibTeX" },
+          c = { "<cmd>Telescope commands<cr>", "Commands" },
+          e = { "<cmd>Telescope file_browser<cr>", "Explorer" },
+          F = { "<cmd>Telescope find_files hidden=true no_ignore=true<cr>", "All Files" },
+          h = { "<cmd>Telescope oldfiles<cr>", "History" },
+          k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
+          m = { "<cmd>Telescope marks<cr>", "Bookmarks" },
+          M = { "<cmd>Telescope media_files<cr>", "Media" },
+          n = { "<cmd>Telescope notify<cr>", "Notifications" },
+          p = { "<cmd>Telescope project<cr>", "Projects" },
+          r = { "<cmd>Telescope registers<cr>", "Registers" },
+          t = { "<cmd>Telescope colorscheme<cr>", "Themes" },
+          u = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
+        },
     --
     --     m = {
     --       name = "Compiler",
@@ -93,24 +95,25 @@ return {
     --       f = { "<cmd>TexlabForward<cr>", "Forward Search" },
     --     },
     --
-    --     d = {
-    --       name = "Document",
-    --       n = { "<cmd>enew<cr>", "New File" },
-    --       s = { "<cmd>setlocal spell!<cr>", "Toggle Spelling" },
-    --       t = { "<cmd>TableModeToggle<cr>", "Toggle Table Mode" },
-    --       p = { "<cmd>setlocal paste!<cr>", "Toggle Paste" },
-    --       b = { "<cmd>read !getbib -c<cr>", "Get Bib" },
-    --       c = { vim_opt_toggle("conceallevel", 2, 0, "Conceal"), "Toggle Conceal" },
-    --       w = { vim_opt_toggle("wrap", true, false, "Soft Wrap"), "Toggle Soft Wrapping" },
-    --       W = { vim_opt_toggle("textwidth", 80, 0, "Hard Wrap"), "Toggle Hard Wrapping" },
-    --       m = { "<cmd>Glow<cr>", "Preview Markdown" },
-    --       M = {
-    --         function()
-    --           require("nabla").popup()
-    --         end,
-    --         "Preview Math",
-    --       },
-    --     },
+        d = {
+          name = "Document",
+          d = { "<cmd>Alpha<cr>", "Alpha Dashboard" },
+          n = { "<cmd>enew<cr>", "New File" },
+          s = { "<cmd>setlocal spell!<cr>", "Toggle Spelling" },
+          t = { "<cmd>TableModeToggle<cr>", "Toggle Table Mode" },
+          p = { "<cmd>setlocal paste!<cr>", "Toggle Paste" },
+          b = { "<cmd>read !getbib -c<cr>", "Get Bib" },
+          c = { vim_opt_toggle("conceallevel", 2, 0, "Conceal"), "Toggle Conceal" },
+          w = { vim_opt_toggle("wrap", true, false, "Soft Wrap"), "Toggle Soft Wrapping" },
+          W = { vim_opt_toggle("textwidth", 80, 0, "Hard Wrap"), "Toggle Hard Wrapping" },
+          m = { "<cmd>MarkdownPreview<cr>", "Preview Markdown" },
+          -- M = {
+          --   function()
+          --     require("nabla").popup()
+          --   end,
+          --   "Preview Math",
+          -- },
+        },
     --
     --     h = {
     --       name = "Hop",
@@ -351,7 +354,7 @@ return {
     --         "Evaluate Line",
     --       },
     --     },
-    --   },
-    -- },
+      },
+    },
   },
 }

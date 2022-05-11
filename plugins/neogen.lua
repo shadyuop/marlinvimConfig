@@ -27,5 +27,10 @@ return {
         annotation_convention = "xmldoc"
       }
     },
+    lua = {
+      template = {
+        annotation_convention = "emmylua"
+      }
+    }
   },
 }
